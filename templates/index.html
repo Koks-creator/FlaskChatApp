@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div align="center">
+    <div class="rounded" style="margin: 40px;padding: 25px;width: 70%; height: 730px;">
+        <br>
+        <div class="col-md-8" style="width: 930px;">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                  {% for category, message in messages %}
+                      <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+                          {{ message }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick="close('col-md-8')">
+                          <span aria-hidden="true">&times;</span></button>
+                      </div>
+                  {% endfor %}
+              {% endif %}
+          {% endwith %}
+      </div>
+        {% if current_user.is_authenticated %}
+            <h1>Welcome back {{ current_user.username }}!</h1>
+            <br>
+            {% if rooms | length == 0 %}
+                <h3>You don't have any rooms yet :/</h3>
+                <h3>Create your own rooms or ask someone to add you</h3>
+            {% else %}
+                <h3>Your rooms: </h3>
+                <div class="px-2 scroll" style="width: 50%; height:70%;" >
+                    {% for room in rooms %}
+                        <a style="font-size: 25px;color:white;" href="/rooms/{{ room.id }}">{{ room.name }}</a><br>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+        {% else %}
+            <h1>Hello! Are you new here?</h1>
+            <h3>If so, create account <a href="{{ url_for('register') }}">here</a></h3>
+        {% endif %}
+
+    </div>
+</div>
+
+<!--<h1>My Chat App</h1>-->
+<!--<h3>Hi {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Guest{% endif %}!</h3>-->
+
+<!--{% if current_user.is_authenticated %}-->
+    <!--<h3>My rooms</h3>-->
+
+<!--{% endif %}-->
+{% endblock content %}

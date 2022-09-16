@@ -1,0 +1,112 @@
+    ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.wrapper{
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #651FFF;
+
+}
+
+.scroll{
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+	height: 325px;
+}
+
+.userMsg{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 8px;
+    background-color: #9a8c98;
+    border-radius: 10px;
+    color: #f6f4d2;
+    font-size: 20px;
+    display: table
+}
+
+.otherUserMsg{
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 8px;
+    background-color: #4a4e69;
+    border-radius: 10px;
+    color: #f6f4d2;
+    font-size: 20px;
+    display: table
+
+}
+
+.rounded{
+    border-radius: 10px;
+    background-color: #9d4edd;
+    color: #f6f4d2;
+    padding: 0px;
+}
+
+.chatRoomHeader{
+    border-radius: 5px;
+    background-color: #9d4edd;
+    color: #f6f4d2;
+    padding: 0px;
+}
+
+
+#messages{
+    float: left;
+    width:50%;
+}
+
+#messages2{
+    float: left;
+    width:50%;
+}
+.member{
+    font-size: 20px;
+    color: #f6f4d2;
+    border-radius: 6px;
+    background-color: #5a189a;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0px 0px 0px 5px;
+}
+
+
+.member:hover{
+    background-color: #240046;
+}
+
+.member_hyperlink{
+    color: #f6f4d2;
+}
+
+.member_hyperlink:hover{
+    color: #f6f4d2;
+}
+.empty_msg{
+    padding: 0px 0px 0px 10px;
+    margin-bottom: 8px;
+    background-color: red;
+    border-radius: 10px;
+    color: #f6f4d2;
+    font-size: 20px;
+    visibility: hidden;
+
+}

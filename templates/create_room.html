@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div align="center">
+    <div class="rounded" style="margin: 40px;padding: 25px;width: 70%;">
+        <h1>Create room</h1>
+        <br>
+        <div class="col-md-8" style="width: 830px;">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                  {% for category, message in messages %}
+                      <div class="alert alert-{{ category }}">
+                          {{ message }}
+                      </div>
+                  {% endfor %}
+              {% endif %}
+          {% endwith %}
+        </div>
+        <form method="POST">
+            <div class="form-group">
+                <label style="font-size: 25px;">Room Name:</label>
+                <input type="text" name="room_name" class="form-control" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label style="font-size: 25px;">Members</label>
+                <input type="text" name="members" class="form-control" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-secondary"
+            style="width: 200px; height: 50px; font-size: 24px;margin-right: 100px;">Submit</button>
+
+            <a href="{{ url_for('home') }}"><button type="button"  class="btn btn-primary"
+            style="width: 200px; height: 50px; font-size: 24px;margin-left 100px;">Cancel</button></a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

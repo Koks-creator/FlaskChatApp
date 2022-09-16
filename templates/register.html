@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div align="center">
+  <div class="rounded" style="margin: 40px;padding: 25px;width: 70%;">
+      <h1 class="display-4">Register</h1>
+      <br>
+      <div class="col-md-8" style="width: 830px;">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                  {% for category, message in messages %}
+                      <div class="alert alert-{{ category }}">
+                          {{ message }}
+                      </div>
+                  {% endfor %}
+              {% endif %}
+          {% endwith %}
+      </div>
+
+      <form method="post" action="">
+          <fieldset class="form-group">
+              <div class="form-group">
+                  <label style="font-size: 25px;">Username:</label>
+                  <input type="text" name="username" class="form-control">
+              </div>
+              <br>
+              <div class="form-group">
+                  <label style="font-size: 25px;">Email:</label>
+                  <input type="text" name="email" class="form-control">
+              </div>
+              <br>
+              <div class="form-group">
+                  <label style="font-size: 25px;">Password:</label>
+                  <input type="password" name="password" class="form-control">
+              </div>
+              <br>
+              <div class="form-group">
+                  <label style="font-size: 25px;">Confirm password:</label>
+                  <input type="password" name="confirm_password" class="form-control">
+              </div>
+              <br>
+              <button type="submit" class="btn btn-secondary" style="width: 300px; height: 60px; font-size: 25px;">Submit</button>
+          </fieldset>
+      </form>
+
+  </div>
+</div>
+{% endblock content %}
